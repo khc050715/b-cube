@@ -32,8 +32,16 @@
 - 리액트 네이티브 환경설정
 <https://docs.expo.dev/get-started/create-a-project/>
 
+- 깃허브 파일 업데이트
+<https://meongae.tistory.com/101>
+
+
 - 깃허브 파일 올리기
 <https://velog.io/@eoveol/Github%EC%97%90-%ED%8F%B4%EB%8D%94-%EC%98%AC%EB%A6%AC%EA%B8%B0>
+
+
+
+
 
 ***
 ### 연락처
