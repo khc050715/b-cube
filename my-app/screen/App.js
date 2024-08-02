@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity,StyleSheet } from 'react-native';
 
 import Week1 from '../screen/week1/week1.js';
 import Week2 from '../screen/week2/week2.js';
+import Week3 from '../screen/week3/week3.js';
 
 import { NavigationContainer } from '@react-navigation/native'; 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -26,7 +27,13 @@ const Home = ({ navigation }) => {
         <TouchableOpacity
           style={styles.TouchableOpacity}
           onPress={() => navigation.navigate("week2")}>
-          <Text>WEEK2</Text>
+          <Text>WEEK2.A</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.TouchableOpacity}
+          onPress={() => navigation.navigate("week3")}>
+          <Text>WEEK3</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -42,6 +49,7 @@ const App = () => {
         <Stack.Screen name="home" component={Home} />
         <Stack.Screen name="week1" component={Week1} />
         <Stack.Screen name="week2" component={Week2} />
+        <Stack.Screen name="week3" component={Week3} />
       </Stack.Navigator>
     </NavigationContainer>
   );
