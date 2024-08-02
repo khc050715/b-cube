@@ -22,48 +22,45 @@ const Profile = () => {
 
     return (
         <View style={styles.container}>
-
-            <Text style={styles.title1}>본인 소개 페이지</Text>
-
-            <View style={styles.subcontainer}>
-                <Text style={styles.textname}>이름:  </Text>
+            <View style={styles.subContainer}>
+                <Text style={styles.text}>이름:</Text>
                 {editname ?
                     <TextInput
-                        style={styles.inputname}
+                        style={styles.input}
                         keyboardType="dafalt"
                         value={name}
                         onChangeText={setname}
                     />
                     :
-                    <Text style={[{ fontSize: 26 }, { width: 230 }]}>{name}</Text>}
+                    <Text style={styles.inputtext}>{name}</Text>}
                 <Button onPress={nametoggle} title={editname ? '확인' : '수정'} />
             </View>
 
-            <View style={styles.subcontainer}>
-                <Text style={styles.textemail}>Email:</Text>
+            <View style={styles.subContainer}>
+                <Text style={styles.text}>Email:</Text>
                 {editemail ?
                     <TextInput
-                        style={styles.inputemail}
+                        style={styles.input}
                         keyboardType="dafalt"
                         value={email}
                         onChangeText={setemail}
                     />
                     :
-                    <Text style={[{ fontSize: 24 }, { width: 230 }]}>{email}</Text>}
+                    <Text style={styles.inputtext}>{email}</Text>}
                 <Button onPress={emailtoggle} title={editemail ? '확인' : '수정'} />
             </View>
 
-            <View style={styles.subcontainer}>
-                <Text style={styles.textage}>나이:  </Text>
+            <View style={styles.subContainer}>
+                <Text style={styles.text}>나이:</Text>
                 {editage ?
                     <TextInput
-                        style={styles.inputage}
+                        style={styles.input}
                         keyboardType='numeric'
                         value={age}
                         onChangeText={setage}
                     />
                     :
-                    <Text style={[{ fontSize: 26 }, { width: 230 },]}>{age}</Text>}
+                    <Text style={styles.inputtext}>{age}</Text>}
                 <Button onPress={agetoggle} title={editage ? '확인' : '수정'} />
             </View>
         </View>
@@ -71,58 +68,30 @@ const Profile = () => {
 };
 
 const styles = StyleSheet.create({
-    subcontainer: {
-        flexDirection: 'row',
-        justifyContent: "center",
-        marginBottom: 10
-    },
-    title1: {
-        fontSize: 30,
-        textAlign: 'center',
-        marginTop: 250,
-        marginBottom: 10
+    container: {
+        alignItems: 'center',
     },
 
-    inputname: {
+    subContainer: {
         flexDirection: 'row',
-        height: 35,
-        width: 230,
-        borderWidth: 1,
-        fontSize: 26,
-    },
-    textname: {
-        flexDirection: 'row',
-        fontSize: 26,
-        justifyContent: "center",
-        width: 100,
+        marginBottom: 10,
+        width: 330
     },
 
-    inputemail: {
-        flexDirection: 'row',
-        height: 35,
-        width: 230,
-        borderWidth: 1,
+    text: {
         fontSize: 24,
-    },
-    textemail: {
-        flexDirection: 'row',
-        fontSize: 26,
-        justifyContent: "center",
-        width: 100,
+        width: 65,
     },
 
-    inputage: {
-        flexDirection: 'row',
-        height: 35,
-        width: 230,
+    input: {
+        fontSize: 24,
+        width: 227,
         borderWidth: 1,
-        fontSize: 26,
     },
-    textage: {
-        flexDirection: 'row',
-        fontSize: 26,
-        justifyContent: "center",
-        width: 100,
+
+    inputtext: {
+        fontSize: 24,
+        width: 227,
     },
 });
 

@@ -29,23 +29,24 @@ const HobbyList = () => {
     return (
         <View style={styles.container}>
 
-            <View style={styles.subcontainerhobby}>
-                <Text style={styles.title2}>취미 목록</Text>
-                <Button style={styles.button} onPress={nametoggle} title={editname ? '확인' : '수정'} />
+            <View style={styles.subcontainer}>
+                <Text style={styles.title}>취미 목록</Text>
+                <Button onPress={nametoggle} title={editname ? '확인' : '수정'} />
             </View>
 
-            <View style={styles.column}>
+            <View style={styles.subContainerList}>
                 <View>
                     {savedhobby.map((item) => (
-                        <View key={item.key} style={[{flexDirection: 'row'}]}>
-                            <Text style={styles.listtext}>{item.value}</Text>
+                        <View key={item.key} style={styles.listItem}>
+                            <Text style={styles.listText}>- {item.value}</Text>
                             {editname ?
-                                <Button title="삭제" onPress={() => remove(item.key)} />
+                                <Button title='삭제' onPress={() => remove(item.key)} />
                                 :
-                                <Text style={[{ fontSize: 28 }, { width: 230 }]}></Text>}
+                                <Text style={styles.listText}></Text>}
                         </View>
                     ))}
                 </View>
+
                 <View style={[{ flexDirection: 'row', marginTop: 10, }]}>
                     <TextInput
                         style={styles.inputhobby}
@@ -55,10 +56,8 @@ const HobbyList = () => {
                     />
                     <Button
                         onPress={add}
-                        style={[{ height: 30 }]}
                         title='추가' />
                 </View>
-
             </View>
         </View>
     )
@@ -66,41 +65,44 @@ const HobbyList = () => {
 
 const styles = StyleSheet.create({
 
-    subcontainerhobby: {
+    container: {
+        alignItems: 'center',
+    },
+
+    subcontainer: {
         flexDirection: 'row',
-        marginTop: 30
-    },
-    button: {
-        height: 10,
-
+        marginTop: 30,
+        width: 330,
+        backgroundColor: 'red'
     },
 
-    title2: {
-        fontSize: 27,
-        marginTop: 0,
-        marginBottom: 10,
-        flexDirection: 'row',
-        marginLeft: 17,
-        width: 335,
+
+    title: {
+        fontSize: 25,
+        width: 292
     },
 
-    column: {
-        flexDirection: 'column',
-        marginTop: 35
+    subContainerList: {
+        marginTop: 20,
+        width: 330,
     },
 
-    listtext: {
+
+    listText: {
         fontSize: 20,
-        marginLeft: 17,
+        width: 292,
+        marginBottom: 10
+    },
+
+    listItem: {
+        flexDirection: 'row',
+        marginBottom: 10
     },
 
     inputhobby: {
-        flexDirection: 'row',
-        height: 35,
+        fontSize: 24,
         width: 130,
         borderWidth: 1,
-        fontSize: 26,
-        marginLeft: 17
     },
 });
 
