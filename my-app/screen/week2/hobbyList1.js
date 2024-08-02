@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 30,
         width: 330,
-        backgroundColor: 'red'
     },
 
 
