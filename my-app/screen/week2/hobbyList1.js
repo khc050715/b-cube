@@ -3,12 +3,28 @@ import { View, Button, Text, StyleSheet, TextInput } from 'react-native';
 
 const HobbyList = () => {
     const [hobby, sethobby] = useState('');
-    const [savedhobby, setsavedhobby] = useState('');
+    const [savedhobby, setsavedhobby] = useState([]);
+
 
     const [editname, seteditname] = useState(false);
     const nametoggle = () => {
         seteditname(editname => !editname)
-    }
+    };
+
+
+    const add = () => {
+        if (hobby) {
+            setsavedhobby([...savedhobby, { key: Math.random().toString(), value: hobby }]);
+            sethobby('');
+        }
+    };
+
+
+    const remove = (key) => {
+        setsavedhobby(savedhobby.filter(todo => todo.key !== key));
+    };
+
+
 
     return (
         <View style={styles.container}>
@@ -20,17 +36,25 @@ const HobbyList = () => {
 
             <View style={styles.column}>
                 <View>
-                    <Text style={styles.listtext}>{savedhobby}리스트 들어올 자리</Text>
+                    {savedhobby.map((item) => (
+                        <View key={item.key} style={[{flexDirection: 'row'}]}>
+                            <Text style={styles.listtext}>{item.value}</Text>
+                            {editname ?
+                                <Button title="삭제" onPress={() => remove(item.key)} />
+                                :
+                                <Text style={[{ fontSize: 28 }, { width: 230 }]}></Text>}
+                        </View>
+                    ))}
                 </View>
                 <View style={[{ flexDirection: 'row', marginTop: 10, }]}>
                     <TextInput
                         style={styles.inputhobby}
                         keyboardType='default'
                         value={hobby}
-                        onChangeText={(text) => sethobby(text)}
+                        onChangeText={sethobby}
                     />
                     <Button
-                        onPress={() => setsavedhobby(hobby)}
+                        onPress={add}
                         style={[{ height: 30 }]}
                         title='추가' />
                 </View>
@@ -77,8 +101,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         fontSize: 26,
         marginLeft: 17
-    }
-
+    },
 });
 
 export default HobbyList;
