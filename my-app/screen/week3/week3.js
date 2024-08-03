@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Button, TextInput, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, Button, TextInput } from 'react-native';
 
 const Week3 = () => {
 

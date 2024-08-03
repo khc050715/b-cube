@@ -2,7 +2,7 @@ import { View, StyleSheet, Text} from 'react-native';
 import Profile from './Profile1.js';
 import HobbyList from './hobbyList1.js';
 
-const Week2 = () => {
+const Week2_A = () => {
 
   return (
     <View style={styles.maincontainer}>
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Week2;
+export default Week2_A;
